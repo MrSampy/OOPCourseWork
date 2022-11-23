@@ -13,5 +13,7 @@ namespace MainForm.Repositories
 
         public UserRepository() => Users = new List<User>();
         public UserRepository(List<User> users) => Users = users;
+        public void AddUser(User user)=>Users.Add(user);
+        public List<User> GetAllUsers() => Users;
     }
 }

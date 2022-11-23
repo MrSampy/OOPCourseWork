@@ -1,10 +1,14 @@
 using MainForm.Repositories;
 using MainForm.Logic;
+using MainForm.Users;
+using MainForm.ShopExceptions;
+
 namespace MainForm
 {
     internal partial class Form1 : Form
     {
         BusinessLogic BusinessLogic;
+
         public Form1(UnitOfWork unitOfWork)
         {
             InitializeComponent();
@@ -14,6 +18,18 @@ namespace MainForm
 
         private void Enter_Click(object sender, EventArgs e)
         {
+            User user;
+            try
+            {
+                user = BusinessLogic.TryEnter(Nickname.Text,Password.Text);
+            }
+            catch (MarketException exc) 
+            {
+                MessageBox.Show(exc.Message);
+                return;
+            }
+
+            MessageBox.Show("Ok");
 
         }
 
@@ -25,7 +41,18 @@ namespace MainForm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            User user;
+            try
+            {
+                user = BusinessLogic.TryCreateNewUser(Nickname.Text, Password.Text);
+            }
+            catch (MarketException exc)
+            {
+                MessageBox.Show(exc.Message);
+                return;
+            }
 
+            MessageBox.Show("Ok");
         }
 
     }

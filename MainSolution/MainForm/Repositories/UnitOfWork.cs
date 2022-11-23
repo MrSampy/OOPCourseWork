@@ -22,5 +22,14 @@ namespace MainForm.Repositories
             Admins = new UserRepository(admins ?? new List<User>());
             Orders = new OrderRepository(orders ?? new List<Order>());
         }
+
+        public List<User> GetAllUsers() 
+        {
+            var result = new List<User>();
+            result.AddRange(RegUsers.GetAllUsers());
+            result.AddRange(Admins.GetAllUsers());
+            return result;
+        } 
+
     }
 }
