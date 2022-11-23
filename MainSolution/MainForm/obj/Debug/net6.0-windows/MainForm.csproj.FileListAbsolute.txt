@@ -5,7 +5,6 @@ C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\bin\Debu
 C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\bin\Debug\net6.0-windows\MainForm.pdb
 C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.csproj.AssemblyReference.cache
 C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.Form1.resources
-C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.MainForm.resources
 C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.ProductTable.resources
 C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.Properties.Resources.resources
 C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.csproj.GenerateResource.cache
