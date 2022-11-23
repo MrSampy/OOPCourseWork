@@ -21,6 +21,8 @@ namespace MainForm.Products
             Cost = cost;
         }
 
+        public override string ToString() => $"{Name}.{Category}.{Cost}";
+
 
     }
 }

@@ -13,5 +13,7 @@ namespace MainForm.Repositories
 
         public ProductRepository() => Products = new List<Product>();
         public ProductRepository(List<Product> products) => Products = products;
+
+        public List<Product> GetAllProducts() => Products;
     }
 }

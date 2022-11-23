@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MainForm.Users
 {
-    internal class Administrator:User
+    internal class Administrator : User
     {
+        public Administrator(string nickName, string password) : base(nickName, password)
+        {
+        }
     }
 }

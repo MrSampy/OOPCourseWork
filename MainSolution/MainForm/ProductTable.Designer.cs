@@ -28,38 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.ProductView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // ProductView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Enabled = false;
-            this.dataGridView1.Location = new System.Drawing.Point(-4, -1);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(628, 372);
-            this.dataGridView1.TabIndex = 0;
+            this.ProductView.AllowDrop = true;
+            this.ProductView.AllowUserToAddRows = false;
+            this.ProductView.AllowUserToDeleteRows = false;
+            this.ProductView.AllowUserToOrderColumns = true;
+            this.ProductView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ProductView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProductView.Location = new System.Drawing.Point(-4, -1);
+            this.ProductView.Name = "ProductView";
+            this.ProductView.ReadOnly = true;
+            this.ProductView.RowTemplate.Height = 25;
+            this.ProductView.Size = new System.Drawing.Size(367, 372);
+            this.ProductView.TabIndex = 0;
+            this.ProductView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductView_CellDoubleClick);
             // 
             // ProductTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 371);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(362, 371);
+            this.Controls.Add(this.ProductView);
             this.Name = "ProductTable";
             this.Text = "ProductTable";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView ProductView;
     }
 }
