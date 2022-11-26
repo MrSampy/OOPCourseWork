@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MainForm.ShopExceptions;
 using MainForm.Users;
-
+using MainForm.Windows;
 
 namespace MainForm.Logic
 {
@@ -30,6 +30,22 @@ namespace MainForm.Logic
             if (user.Count() == 0)
                 throw new MarketException("There is no user with such name and password!");
             return user.First();
+        }
+
+        public void SearcForProductByName() 
+        {
+            string productName = String.Empty;
+            var dialog = new CustomDialogBox("Enter product name, you want to find:", new MyDelegateOneItem((string data) => productName = data));
+            dialog.ShowDialog();
+            var result = UnitOfWork.Products.GetProductByName(productName);
+            if (result.Count == 0) 
+            {
+                MessageBox.Show("There is no product with such name");
+                return;
+            }
+            Table = new ProductTable(result);
+            Table.ShowDialog();
+
         }
         public User TryCreateNewUser(string? name, string? password)
         {

@@ -15,5 +15,6 @@ namespace MainForm.Repositories
         public ProductRepository(List<Product> products) => Products = products;
 
         public List<Product> GetAllProducts() => Products;
+        public List<Product> GetProductByName(string name) => Products.Where(x=>x.Name.ToLower().Equals(name.ToLower())).ToList();
     }
 }

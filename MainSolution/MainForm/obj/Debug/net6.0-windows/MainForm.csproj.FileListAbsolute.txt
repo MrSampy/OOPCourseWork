@@ -17,3 +17,5 @@ C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debu
 C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.pdb
 C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.genruntimeconfig.cache
 C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\ref\MainForm.dll
+C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.Windows.RegUserForm.resources
+C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.Windows.CustomDialogBox.resources
