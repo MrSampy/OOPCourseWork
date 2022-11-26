@@ -12,13 +12,19 @@ namespace MainForm.Windows
 {
     public partial class RegUserForm : Form
     {
-        public RegUserForm(string text, EventHandler action)
+        MyDelegateTwoItem myDelegateTwoItem;
+        public RegUserForm(string text, MyDelegateTwoItem myDelegateTwoItem)
         {
             InitializeComponent();
             button1.Text = text;
-            button1.Click += new EventHandler(action);
+            this.myDelegateTwoItem = myDelegateTwoItem;
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            myDelegateTwoItem(textBox1.Text, textBox2.Text);
+            this.Close();
+        }
     }
 }

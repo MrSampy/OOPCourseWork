@@ -6,6 +6,7 @@ using MainForm.Windows;
 namespace MainForm
 {
     public delegate void MyDelegateOneItem(string data);
+    public delegate void MyDelegateTwoItem(string data1, string data2);
     internal partial class Form1 : Form
     {
         BusinessLogic BusinessLogic;
@@ -21,8 +22,8 @@ namespace MainForm
             {
                 {"Finish your work",CloseForm},
                 {"Search for good by name",BusinessLogic.SearcForProductByName},
-                {"Sign in account",CloseForm},
-                {"Create new account",CloseForm},
+                {"Sign in account",EnterUser},
+                {"Create new account",RegisterUser},
 
             };
             TempPerson = new Guest();
@@ -46,30 +47,45 @@ namespace MainForm
             this.menuToolStripMenuItem.DropDownItems.AddRange(items);
         }
 
-        /*
-        private void Enter_Click(object sender, EventArgs e)
+        private void EnterUser() 
         {
             User user;
+            string nickname = string.Empty;
+            string password = string.Empty;
+            var dialog = new RegUserForm("Enter", new MyDelegateTwoItem((string data1,string data2) => 
+            {
+                nickname = data1;
+                password = data2;
+            }));
+            dialog.ShowDialog();
             try
             {
-                user = BusinessLogic.TryEnter(Nickname.Text,Password.Text);
+                user = BusinessLogic.TryEnter(nickname, password);
             }
-            catch (MarketException exc) 
+            catch (MarketException exc)
             {
                 MessageBox.Show(exc.Message);
                 return;
             }
-
-            MessageBox.Show("Ok");
+           
+            TempPerson = user;
+            RefreshMenu();
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void RegisterUser()
         {
             User user;
+            string nickname = string.Empty;
+            string password = string.Empty;
+            var dialog = new RegUserForm("Register", new MyDelegateTwoItem((string data1, string data2) =>
+            {
+                nickname = data1;
+                password = data2;
+            }));
+            dialog.ShowDialog();
             try
             {
-                user = BusinessLogic.TryCreateNewUser(Nickname.Text, Password.Text);
+                user = BusinessLogic.TryCreateNewUser(nickname, password);
             }
             catch (MarketException exc)
             {
@@ -77,18 +93,11 @@ namespace MainForm
                 return;
             }
 
-            MessageBox.Show("Ok");
+            TempPerson = user;
+            RefreshMenu();
+
         }
-
-        private void finishYourWork_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void searchForGoodByName_Click(object sender, EventArgs e)
-        {
-
-        }*/
+    
 
     }
 }

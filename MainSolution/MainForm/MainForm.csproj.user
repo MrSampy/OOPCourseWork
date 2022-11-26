@@ -4,7 +4,7 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ProductTable.cs">
+    <Compile Update="Windows\ProductTable.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Windows\CustomDialogBox.cs">
