@@ -10,21 +10,26 @@ using System.Windows.Forms;
 
 namespace MainForm.Windows
 {
-    public partial class CustomDialogBox : Form
+    public partial class CheckForm : Form
     {
-        private MyDelegateOneItem<string> delegateOneItem;
-        public CustomDialogBox(string question, MyDelegateOneItem<string> delegateOneItem)
+        MyDelegateOneItem<bool> Delegate;
+        public CheckForm(string question, MyDelegateOneItem<bool> del)
         {
             InitializeComponent();
+            Delegate = del;
             label1.Text = question;
-            this.delegateOneItem = delegateOneItem;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            delegateOneItem(textBox1.Text);
+            Delegate(true);
             this.Close();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Delegate(false);
+            this.Close();
+        }
     }
 }

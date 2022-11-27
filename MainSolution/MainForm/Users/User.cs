@@ -24,7 +24,6 @@ namespace MainForm.Users
             {
                 new MenuItem("View the list of goods"),
                 new MenuItem("Sign out"),
-                new MenuItem("View Profile"),
                 new MenuItem("Change Profile"),
                 new MenuItem("Create new order"),
                 new MenuItem("Ordering"),
