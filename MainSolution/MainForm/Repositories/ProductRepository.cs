@@ -13,7 +13,7 @@ namespace MainForm.Repositories
 
         public ProductRepository() => Products = new List<Product>();
         public ProductRepository(List<Product> products) => Products = products;
-
+        public void AddProduct(Product product) => Products.Add(product);
         public List<Product> GetAllProducts() => Products;
         public List<Product> GetProductByName(string name) => Products.Where(x=>x.Name.ToLower().Equals(name.ToLower())).ToList();
     }

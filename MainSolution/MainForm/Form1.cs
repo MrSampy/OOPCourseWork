@@ -10,6 +10,7 @@ namespace MainForm
 {
     public delegate void MyDelegateOneItem<T>(T data);
     public delegate void MyDelegateTwoItem(string data1, string data2);
+    public delegate void MyDelegateFourItem(string data1, string data2, string data3, string data4);
     internal partial class Form1 : Form
     {
         BusinessLogic BusinessLogic;
@@ -35,7 +36,7 @@ namespace MainForm
                 {"Cancellation" ,CloseForm },
                 {"Review the history of orders",CloseForm },
                 {"Setting the status of the order Received",CloseForm },
-                {"Add new product",CloseForm },
+                {"Add new product",BusinessLogic.CreateProduct },
                 {"Change description about the product",CloseForm },
                 {"View personal information of users",CloseForm },
                 {"Change personal information of user",CloseForm },

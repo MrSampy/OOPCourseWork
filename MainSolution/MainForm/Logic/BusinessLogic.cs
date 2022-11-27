@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MainForm.ShopExceptions;
 using MainForm.Users;
 using MainForm.Windows;
+using MainForm.Products;
 using System.Xml.Linq;
 
 namespace MainForm.Logic
@@ -35,7 +36,52 @@ namespace MainForm.Logic
             return result;
         }
 
+        public void CreateProduct() 
+        {
+            var name = string.Empty;
+            var category = string.Empty;
+            var desc = string.Empty;
+            var stringPrice = string.Empty;
+            var dialog = new ProductCreator(new MyDelegateFourItem((string data1, string data2, string data3, string data4) => 
+            {
+                name = data1;
+                category = data2;
+                desc = data3;
+                stringPrice = data4;
+            
+            }));
+            dialog.ShowDialog();
 
+            try
+            {
+                CheckString(name);
+                CheckString(category);
+                CheckString(desc);
+                CheckString(stringPrice);
+            }
+            catch (MarketException ex) 
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            if (UnitOfWork.Products.GetProductByName(name).Count != 0)
+            {
+                MessageBox.Show("There have been already product with such name");
+                return;
+            }
+            double price = 0;
+            try
+            {
+                price = Convert.ToDouble(stringPrice);
+            }
+            catch 
+            {
+                MessageBox.Show("Invalid data");
+                return;
+            }
+            UnitOfWork.Products.AddProduct(new Product(name,category,desc,price));
+
+        }
         public string ChangeProfile(Person person) 
         {
             var user = GetUserByName(person.GetName());
