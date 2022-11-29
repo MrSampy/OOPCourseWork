@@ -37,7 +37,6 @@
             this.ProductView.AllowDrop = true;
             this.ProductView.AllowUserToAddRows = false;
             this.ProductView.AllowUserToDeleteRows = false;
-            this.ProductView.AllowUserToOrderColumns = true;
             this.ProductView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ProductView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProductView.Location = new System.Drawing.Point(-4, -1);

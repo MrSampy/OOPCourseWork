@@ -38,7 +38,7 @@ namespace MainForm
                 {"Setting the status of the order Received",CloseForm },
                 {"Add new product",BusinessLogic.CreateProduct },
                 {"Change description about the product",BusinessLogic.ChangeProductDesc },
-                {"View personal information of users",CloseForm },
+                {"View personal information of users",BusinessLogic.ShowAllUsers },
                 {"Change personal information of user",CloseForm },
                 {"Change the status of the order",CloseForm },
                 {"Cancellation by admin",CloseForm }

@@ -35,12 +35,6 @@ namespace MainForm
 
         }
 
-        public void AddProduct(Product product) 
-        {
-            products.Add(product);
-            RefreshTable();
-        }
-
         private void ProductView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex!=-1)

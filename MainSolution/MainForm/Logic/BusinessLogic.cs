@@ -15,7 +15,6 @@ namespace MainForm.Logic
     internal class BusinessLogic
     {
         public UnitOfWork UnitOfWork { set; get; }
-        ProductTable? Table;
 
         public BusinessLogic(UnitOfWork unitOfWork) => UnitOfWork = unitOfWork;
 
@@ -130,8 +129,13 @@ namespace MainForm.Logic
 
         public void ShowAllProducts() 
         {
-            Table = new ProductTable(UnitOfWork.Products.GetAllProducts());
-            Table.ShowDialog();
+            var table = new ProductTable(UnitOfWork.Products.GetAllProducts());
+            table.ShowDialog();
+        }
+        public void ShowAllUsers()
+        {
+            var table = new UserTable(UnitOfWork.GetAllUsers());
+            table.ShowDialog();
         }
         public User TryEnter(string? name,string? password)
         {
@@ -155,8 +159,8 @@ namespace MainForm.Logic
                 MessageBox.Show("There is no product with such name");
                 return;
             }
-            Table = new ProductTable(result);
-            Table.ShowDialog();
+            var table  = new ProductTable(result);
+            table.ShowDialog();
 
         }
         public User TryCreateNewUser(string? name, string? password)
