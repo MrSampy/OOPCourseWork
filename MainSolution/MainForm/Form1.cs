@@ -39,7 +39,7 @@ namespace MainForm
                 {"Add new product",BusinessLogic.CreateProduct },
                 {"Change description about the product",BusinessLogic.ChangeProductDesc },
                 {"View personal information of users",BusinessLogic.ShowAllUsers },
-                {"Change personal information of user",CloseForm },
+                {"Change personal information of user",BusinessLogic.ChangePersonalInfoOfUser },
                 {"Change the status of the order",CloseForm },
                 {"Cancellation by admin",CloseForm }
 

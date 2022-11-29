@@ -82,6 +82,36 @@ namespace MainForm.Logic
 
         }
 
+
+        public void ChangePersonalInfoOfUser()
+        {
+            var userName = string.Empty;
+            var newProfile = string.Empty;
+            var dialog = new CustomDialogBox("Enter user name:", new MyDelegateOneItem<string>((string data) => userName = data));
+            dialog.ShowDialog();
+            var dialog1 = new CustomDialogBox("Enter new profile information:", new MyDelegateOneItem<string>((string data) => newProfile = data));
+            dialog1.ShowDialog();
+            var result = UnitOfWork.GetAllUsers().Where(x=>x.NickName.Equals(userName));
+            if (result.Count() == 0) 
+            {
+                MessageBox.Show("There is no user with such name!");
+                return;
+            }
+            try
+            {
+                CheckString(newProfile);
+            }
+            catch (MarketException ex) 
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            if (!CheckChoice($"Are you really want to change personal info of {result.First().NickName}\n" +
+                $"from `{result.First().ProfileInfo}` to `{newProfile}`"))
+                return;
+            result.First().ChangeProfile(newProfile);
+
+        }
         public void ChangeProductDesc()
         {
             string productName = String.Empty;
@@ -108,7 +138,7 @@ namespace MainForm.Logic
             }
 
             if (!CheckChoice($"Are you really want to change description of\n" +
-                $" {result.First().Name} from {result.First().Description} to {newDesc}"))
+                $" {result.First().Name} from `{result.First().Description}` to `{newDesc}`"))
                 return;
             result.First().Description = newDesc;
 
@@ -121,7 +151,7 @@ namespace MainForm.Logic
             var dialog = new CustomDialogBox("Enter new profile information:", new MyDelegateOneItem<string>((string data) => newProfile = data));
             dialog.ShowDialog();
             CheckString(newProfile);
-            if (!CheckChoice($"Are you really want to change your profile information from\n{user.ProfileInfo} to {newProfile}?"))
+            if (!CheckChoice($"Are you really want to change your profile information from\n`{user.ProfileInfo}` to `{newProfile}`?"))
                 return user.ProfileInfo;
             UnitOfWork.GetAllUsers().First(x => x.NickName.Equals(user.NickName) && x.Password.Equals(user.Password)).ProfileInfo = newProfile;
             return newProfile;
