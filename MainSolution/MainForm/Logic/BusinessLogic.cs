@@ -82,6 +82,39 @@ namespace MainForm.Logic
             UnitOfWork.Products.AddProduct(new Product(name,category,desc,price));
 
         }
+
+        public void ChangeProductDesc()
+        {
+            string productName = String.Empty;
+            string newDesc = String.Empty;
+            var dialog = new CustomDialogBox("Enter product name, you want to change description:", new MyDelegateOneItem<string>((string data) => productName = data));
+            dialog.ShowDialog();
+            var dialog1 = new CustomDialogBox("Enter new description for product:", new MyDelegateOneItem<string>((string data) => newDesc = data));
+            dialog1.ShowDialog();
+            var result = UnitOfWork.Products.GetProductByName(productName);
+            if (result.Count == 0)
+            {
+                MessageBox.Show("There is no product with such name");
+                return;
+            }
+            try
+            {
+                CheckString(newDesc);
+
+            }
+            catch (MarketException ex) 
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            if (!CheckChoice($"Are you really want to change description of\n" +
+                $" {result.First().Name} from {result.First().Description} to {newDesc}"))
+                return;
+            result.First().Description = newDesc;
+
+        }
+
         public string ChangeProfile(Person person) 
         {
             var user = GetUserByName(person.GetName());

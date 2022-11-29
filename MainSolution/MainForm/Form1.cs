@@ -37,7 +37,7 @@ namespace MainForm
                 {"Review the history of orders",CloseForm },
                 {"Setting the status of the order Received",CloseForm },
                 {"Add new product",BusinessLogic.CreateProduct },
-                {"Change description about the product",CloseForm },
+                {"Change description about the product",BusinessLogic.ChangeProductDesc },
                 {"View personal information of users",CloseForm },
                 {"Change personal information of user",CloseForm },
                 {"Change the status of the order",CloseForm },
@@ -56,6 +56,7 @@ namespace MainForm
             RefreshMenu();
             profileInfo.Text = "Hello, dear guest!";
         }
+
 
         private void ChangeProfile() 
         {
@@ -114,6 +115,7 @@ namespace MainForm
             profileInfo.Text = user.ProfileInfo;
 
         }
+
         private void RegisterUser()
         {
             User user;
