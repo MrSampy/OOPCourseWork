@@ -31,7 +31,7 @@ namespace MainForm
                 {"View the list of goods",BusinessLogic.ShowAllProducts},
                 {"Sign out",LogOut },
                 {"Change Profile",ChangeProfile },
-                {"Create new order",CloseForm },
+                {"Create new order",CreateNewOrder },
                 {"Ordering",CloseForm },
                 {"Cancellation" ,CloseForm },
                 {"Review the history of orders",CloseForm },
@@ -57,6 +57,18 @@ namespace MainForm
             profileInfo.Text = "Hello, dear guest!";
         }
 
+        private void CreateNewOrder() 
+        {
+            try
+            {
+                BusinessLogic.CreateNewOrder(TempPerson.GetName());
+            }
+            catch (MarketException ex) 
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
 
         private void ChangeProfile() 
         {

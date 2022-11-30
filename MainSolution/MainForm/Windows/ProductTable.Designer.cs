@@ -45,7 +45,6 @@
             this.ProductView.RowTemplate.Height = 25;
             this.ProductView.Size = new System.Drawing.Size(367, 372);
             this.ProductView.TabIndex = 0;
-            this.ProductView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductView_CellDoubleClick);
             // 
             // ProductTable
             // 

@@ -82,7 +82,29 @@ namespace MainForm.Logic
 
         }
 
-
+        public void CreateNewOrder(string userName)
+        {
+           
+            var productsInOrder = new List<(int, Product)>();
+            
+            
+            while (true) 
+            {
+                var productName = string.Empty;
+                int productNumber = 0;
+                var table1 = new ProductTable(UnitOfWork.Products.GetAllProducts(), new MyDelegateOneItem<string>((string data) => productName = data));
+                table1.ShowDialog();
+                var table2 = new EnterNumber($"How many {productName} batches, you want to buy?",new MyDelegateOneItem<int>((int data) => productNumber = data));
+                table2.ShowDialog();
+                if (CheckChoice($"Do you want to add {productNumber} batche(s) of {productName} to order?"))
+                    productsInOrder.Add((productNumber,UnitOfWork.Products.GetProductByName(productName).First()));
+                if (CheckChoice("Do you want to stop ordering?"))
+                    break;
+            }
+            if (productsInOrder.Count == 0)
+                throw new MarketException("Order didn`t created, because you hadn`t chosen any product!");
+            UnitOfWork.Orders.AddOrder(userName, productsInOrder);
+        }
         public void ChangePersonalInfoOfUser()
         {
             var userName = string.Empty;

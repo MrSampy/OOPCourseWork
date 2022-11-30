@@ -7,6 +7,9 @@
     <Compile Update="Windows\CheckForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Windows\EnterNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Windows\ProductCreator.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -31,6 +31,13 @@ namespace MainForm.Orders
             _productInOrder = new List<(int, Product)>();
             PaidByUser = false;
         }
+        public Order(string name, List<(int, Product)> productsInOrder)
+        {
+            Status = OrderStatus.New;
+            NameOfOwner = name;
+            _productInOrder = productsInOrder;
+            PaidByUser = false;
+        }
         public void AddProductToOrder(int number, Product product)
         {
             _productInOrder.Add((number, product));
