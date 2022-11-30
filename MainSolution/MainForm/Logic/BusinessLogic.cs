@@ -50,24 +50,13 @@ namespace MainForm.Logic
             
             }));
             dialog.ShowDialog();
-
-            try
-            {
-                CheckString(name);
-                CheckString(category);
-                CheckString(desc);
-                CheckString(stringPrice);
-            }
-            catch (MarketException ex) 
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
+            CheckString(name);
+            CheckString(category);
+            CheckString(desc);
+            CheckString(stringPrice);
             if (UnitOfWork.Products.GetProductByName(name).Count != 0)
-            {
-                MessageBox.Show("There have been already product with such name");
-                return;
-            }
+            
+                throw new MarketException("There have been already product with such name");
             double price = 0;
             try
             {
@@ -75,8 +64,7 @@ namespace MainForm.Logic
             }
             catch 
             {
-                MessageBox.Show("Invalid data");
-                return;
+                throw new MarketException("Invalid data!");
             }
             UnitOfWork.Products.AddProduct(new Product(name,category,desc,price));
 
@@ -115,19 +103,8 @@ namespace MainForm.Logic
             dialog1.ShowDialog();
             var result = UnitOfWork.GetAllUsers().Where(x=>x.NickName.Equals(userName));
             if (result.Count() == 0) 
-            {
-                MessageBox.Show("There is no user with such name!");
-                return;
-            }
-            try
-            {
-                CheckString(newProfile);
-            }
-            catch (MarketException ex) 
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
+                throw new MarketException("There is no user with such name!");
+            CheckString(newProfile);
             if (!CheckChoice($"Are you really want to change personal info of {result.First().NickName}\n" +
                 $"from `{result.First().ProfileInfo}` to `{newProfile}`"))
                 return;
@@ -143,22 +120,9 @@ namespace MainForm.Logic
             var dialog1 = new CustomDialogBox("Enter new description for product:", new MyDelegateOneItem<string>((string data) => newDesc = data));
             dialog1.ShowDialog();
             var result = UnitOfWork.Products.GetProductByName(productName);
-            if (result.Count == 0)
-            {
-                MessageBox.Show("There is no product with such name");
-                return;
-            }
-            try
-            {
-                CheckString(newDesc);
-
-            }
-            catch (MarketException ex) 
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-
+            if (result.Count == 0)   
+                throw new MarketException("There is no product with such name");
+            CheckString(newDesc);
             if (!CheckChoice($"Are you really want to change description of\n" +
                 $" {result.First().Name} from `{result.First().Description}` to `{newDesc}`"))
                 return;
@@ -207,10 +171,7 @@ namespace MainForm.Logic
             dialog.ShowDialog();
             var result = UnitOfWork.Products.GetProductByName(productName);
             if (result.Count == 0) 
-            {
-                MessageBox.Show("There is no product with such name");
-                return;
-            }
+                throw new MarketException("There is no product with such name");
             var table  = new ProductTable(result);
             table.ShowDialog();
 

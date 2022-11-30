@@ -25,10 +25,10 @@ namespace MainForm
             actions = new Dictionary<string, Action>
             {
                 {"Finish your work",CloseForm},
-                {"Search for good by name",BusinessLogic.SearcForProductByName},
+                {"Search for good by name",SearcForProductByName},
                 {"Sign in account",EnterUser},
                 {"Create new account",RegisterUser},
-                {"View the list of goods",BusinessLogic.ShowAllProducts},
+                {"View the list of goods",ShowAllProducts},
                 {"Sign out",LogOut },
                 {"Change Profile",ChangeProfile },
                 {"Create new order",CreateNewOrder },
@@ -36,16 +36,99 @@ namespace MainForm
                 {"Cancellation" ,CloseForm },
                 {"Review the history of orders",CloseForm },
                 {"Setting the status of the order Received",CloseForm },
-                {"Add new product",BusinessLogic.CreateProduct },
-                {"Change description about the product",BusinessLogic.ChangeProductDesc },
-                {"View personal information of users",BusinessLogic.ShowAllUsers },
-                {"Change personal information of user",BusinessLogic.ChangePersonalInfoOfUser },
+                {"Add new product",CreateProduct },
+                {"Change description about the product",ChangeProductDesc },
+                {"View personal information of users",ShowAllUsers },
+                {"Change personal information of user",ChangePersonalInfoOfUser },
                 {"Change the status of the order",CloseForm },
                 {"Cancellation by admin",CloseForm }
 
             };
             TempPerson = new Guest();
             RefreshMenu();
+
+        }
+        private void ChangePersonalInfoOfUser()
+        {
+
+            try
+            {
+                BusinessLogic.ChangePersonalInfoOfUser();
+            }
+            catch (MarketException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+        }
+        private void ShowAllUsers()
+        {
+            try
+            {
+                BusinessLogic.ShowAllUsers();
+            }
+            catch (MarketException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+        }
+        private void ChangeProductDesc()
+        {
+
+            try
+            {
+                BusinessLogic.ChangeProductDesc();
+            }
+            catch (MarketException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+        }
+        private void CreateProduct()
+        {
+
+            try
+            {
+                BusinessLogic.CreateProduct();
+            }
+            catch (MarketException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+        }
+        private void SearcForProductByName() 
+        {
+
+            try
+            {
+                BusinessLogic.SearcForProductByName();
+            }
+            catch (MarketException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+        }
+        private void ShowAllProducts()
+        {
+
+            try
+            {
+                BusinessLogic.ShowAllProducts();
+            }
+            catch (MarketException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
 
         }
         private void LogOut()
