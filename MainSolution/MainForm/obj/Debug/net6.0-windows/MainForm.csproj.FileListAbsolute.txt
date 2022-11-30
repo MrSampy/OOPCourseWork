@@ -23,3 +23,5 @@ C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debu
 C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.Windows.ProductCreator.resources
 C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.Windows.UserTable.resources
 C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.Windows.EnterNumber.resources
+C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.Windows.FormTables.ViewOrdersTable.resources
+C:\Users\Сергей\RiderProjects\OOPCourseWork\MainSolution\MainForm\obj\Debug\net6.0-windows\MainForm.Windows.FormTables.ProductsInOrderTable.resources

@@ -9,6 +9,7 @@ using MainForm.Users;
 using MainForm.Windows;
 using MainForm.Products;
 using System.Xml.Linq;
+using MainForm.Windows.FormTables;
 
 namespace MainForm.Logic
 {
@@ -146,6 +147,19 @@ namespace MainForm.Logic
         public void ShowAllProducts() 
         {
             var table = new ProductTable(UnitOfWork.Products.GetAllProducts());
+            table.ShowDialog();
+        }
+        public void ShowAllOrders()
+        {
+            var table = new ViewOrdersTable(UnitOfWork.Orders.GetAllOrders());
+            table.ShowDialog();
+        }
+        public void ShowAllOrdersOfUser(string name)
+        {
+            var orders = UnitOfWork.Orders.GetAllOrders().Where(x=>x.NameOfOwner.Equals(name)).ToList();
+            if (orders.Count == 0)
+                throw new MarketException("You haven`t had any orders!");
+            var table = new ViewOrdersTable(orders);
             table.ShowDialog();
         }
         public void ShowAllUsers()

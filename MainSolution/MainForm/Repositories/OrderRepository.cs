@@ -16,5 +16,6 @@ namespace MainForm.Repositories
         public OrderRepository(List<Order> orders) => Orders = orders;
         public void AddOrder(string name, List<(int, Product)> products)=>Orders.Add(new Order(name, products));
 
+        public List<Order> GetAllOrders() => Orders;
     }
 }

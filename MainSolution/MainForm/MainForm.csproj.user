@@ -10,10 +10,16 @@
     <Compile Update="Windows\EnterNumber.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Windows\FormTables\ProductsInOrderTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Windows\FormTables\ViewOrdersTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Windows\ProductCreator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Windows\ProductTable.cs">
+    <Compile Update="Windows\FormTables\ProductTable.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Windows\CustomDialogBox.cs">
@@ -22,7 +28,7 @@
     <Compile Update="Windows\RegUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Windows\UserTable.cs">
+    <Compile Update="Windows\FormTables\UserTable.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -13,6 +13,7 @@ namespace MainForm.Users
         {
             MenuItems.AddRange(new List<MenuItem>
             {
+                new MenuItem("View all orders"),
                 new MenuItem("Add new product"),
                 new MenuItem("Change description about the product"),
                 new MenuItem("View personal information of users"),

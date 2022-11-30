@@ -34,8 +34,9 @@ namespace MainForm
                 {"Create new order",CreateNewOrder },
                 {"Ordering",CloseForm },
                 {"Cancellation" ,CloseForm },
-                {"Review the history of orders",CloseForm },
+                {"Review the history of orders",ShowAllOrdersOfUser },
                 {"Setting the status of the order Received",CloseForm },
+                {"View all orders",ShowAllOrders },
                 {"Add new product",CreateProduct },
                 {"Change description about the product",ChangeProductDesc },
                 {"View personal information of users",ShowAllUsers },
@@ -62,11 +63,14 @@ namespace MainForm
             }
 
         }
-        private void ShowAllUsers()
+        private void ShowAllUsers() => BusinessLogic.ShowAllUsers();
+        private void ShowAllOrders() => BusinessLogic.ShowAllOrders();
+        private void ShowAllOrdersOfUser()
         {
+
             try
             {
-                BusinessLogic.ShowAllUsers();
+                BusinessLogic.ShowAllOrdersOfUser(TempPerson.GetName());
             }
             catch (MarketException ex)
             {
@@ -117,20 +121,8 @@ namespace MainForm
             }
 
         }
-        private void ShowAllProducts()
-        {
+        private void ShowAllProducts() => BusinessLogic.ShowAllProducts();
 
-            try
-            {
-                BusinessLogic.ShowAllProducts();
-            }
-            catch (MarketException ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-
-        }
         private void LogOut()
         {
             if (!BusinessLogic.CheckChoice("Are you sure, that you want to sign out?"))

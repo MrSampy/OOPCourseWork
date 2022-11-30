@@ -21,7 +21,7 @@ namespace MainForm.Orders
     internal class Order
     {
         public OrderStatus Status { get; set; }
-        private readonly List<(int, Product)> _productInOrder;
+        public List<(int, Product)> _productInOrder;
         public string NameOfOwner { get; }
         public bool PaidByUser { get; set; }
         public Order(string name)
