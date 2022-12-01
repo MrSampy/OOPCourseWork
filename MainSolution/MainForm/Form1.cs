@@ -32,21 +32,68 @@ namespace MainForm
                 {"Sign out",LogOut },
                 {"Change Profile",ChangeProfile },
                 {"Create new order",CreateNewOrder },
-                {"Ordering",CloseForm },
-                {"Cancellation" ,CloseForm },
+                {"Ordering",Ordering },
+                {"Cancellation" ,CancellOrderByUser },
                 {"Review the history of orders",ShowAllOrdersOfUser },
-                {"Setting the status of the order Received",CloseForm },
+                {"Setting the status of the order Received",SetStatusReceive },
                 {"View all orders",ShowAllOrders },
                 {"Add new product",CreateProduct },
                 {"Change description about the product",ChangeProductDesc },
                 {"View personal information of users",ShowAllUsers },
                 {"Change personal information of user",ChangePersonalInfoOfUser },
-                {"Change the status of the order",CloseForm },
-                {"Cancellation by admin",CloseForm }
+                {"Setting the status of the order Sent",SetStatusSent },
+                {"Setting the status of the order Completed",SetStatusCompleted },
+                {"Cancellation by admin",CancellByAdmin }
 
             };
             TempPerson = new Guest();
             RefreshMenu();
+
+        }
+
+        private void CancellByAdmin()
+        {
+
+            try
+            {
+                BusinessLogic.ChangeStatus(BusinessLogic.GetOrdersToCancellUser(TempPerson.GetName()), Orders.OrderStatus.Canceled_by_the_administrator,
+                    "Are you sure, you want to cancell the order?");
+            }
+            catch (MarketException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+        }
+        private void SetStatusCompleted()
+        {
+
+            try
+            {
+                BusinessLogic.ChangeStatus(BusinessLogic.GetOrdersToConpleted(TempPerson.GetName()), Orders.OrderStatus.Completed,
+                    "Are you sure, you want to complete the order?");
+            }
+            catch (MarketException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+        }
+        private void SetStatusSent()
+        {
+
+            try
+            {
+                BusinessLogic.ChangeStatus(BusinessLogic.GetOrdersToSent(TempPerson.GetName()), Orders.OrderStatus.Sent,
+                    "Are you sure, you want to send the order?");
+            }
+            catch (MarketException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
 
         }
         private void ChangePersonalInfoOfUser()
@@ -55,6 +102,49 @@ namespace MainForm
             try
             {
                 BusinessLogic.ChangePersonalInfoOfUser();
+            }
+            catch (MarketException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+        }
+        private void Ordering()
+        {
+
+            try
+            {
+                BusinessLogic.ChangeStatus(BusinessLogic.GetOrdersToPay(TempPerson.GetName()),Orders.OrderStatus.Payment_received,
+                    "Are you sure, you want to pay for order?");
+            }
+            catch (MarketException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+        }
+        private void SetStatusReceive()
+        {
+            try
+            {
+                BusinessLogic.ChangeStatus(BusinessLogic.GetOrdersToReceive(TempPerson.GetName()), Orders.OrderStatus.Received,
+                    "Are you sure, you want to receive the order?");
+            }
+            catch (MarketException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+        private void CancellOrderByUser()
+        {
+
+            try
+            {
+                BusinessLogic.ChangeStatus(BusinessLogic.GetOrdersToCancellUser(TempPerson.GetName()), Orders.OrderStatus.Canceled_by_user,
+                    "Are you sure, you want to cancell your order?");
             }
             catch (MarketException ex)
             {

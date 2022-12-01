@@ -10,6 +10,8 @@ using MainForm.Windows;
 using MainForm.Products;
 using System.Xml.Linq;
 using MainForm.Windows.FormTables;
+using MainForm.Orders;
+
 
 namespace MainForm.Logic
 {
@@ -154,6 +156,27 @@ namespace MainForm.Logic
             var table = new ViewOrdersTable(UnitOfWork.Orders.GetAllOrders());
             table.ShowDialog();
         }
+
+
+        public List<Order> GetOrdersToPay(string name) => UnitOfWork.Orders.GetAllOrders().Where(x => x.NameOfOwner.Equals(name) && x.Status == Orders.OrderStatus.New).ToList();
+        public List<Order> GetOrdersToCancellUser(string name) => UnitOfWork.Orders.GetAllOrders().Where(x => x.NameOfOwner.Equals(name) && x.Status != Orders.OrderStatus.Canceled_by_the_administrator
+        && x.Status != Orders.OrderStatus.Canceled_by_user && x.Status != Orders.OrderStatus.Completed && x.Status != Orders.OrderStatus.Received).ToList();
+        public List<Order> GetOrdersToReceive(string name) => UnitOfWork.Orders.GetAllOrders().Where(x => x.NameOfOwner.Equals(name) && x.Status == Orders.OrderStatus.Sent).ToList();        
+        public List<Order> GetOrdersToConpleted(string name) => UnitOfWork.Orders.GetAllOrders().Where(x => x.NameOfOwner.Equals(name) && x.Status == Orders.OrderStatus.Received).ToList(); 
+
+        public List<Order> GetOrdersToSent(string name) => UnitOfWork.Orders.GetAllOrders().Where(x => x.NameOfOwner.Equals(name) && x.Status == Orders.OrderStatus.Payment_received).ToList();
+
+        public void ChangeStatus(List<Order> orders, OrderStatus status,string question) 
+        {
+            if (orders.Count == 0)
+                throw new MarketException("You didn`t have orders to change status!");
+            int orderId = 0;
+            var table = new ViewOrdersTable(orders, status, new MyDelegateOneItem<int>((int data) => orderId = data),question);
+            table.ShowDialog();
+            orders[orderId].Status = status;
+
+        }
+
         public void ShowAllOrdersOfUser(string name)
         {
             var orders = UnitOfWork.Orders.GetAllOrders().Where(x=>x.NameOfOwner.Equals(name)).ToList();
