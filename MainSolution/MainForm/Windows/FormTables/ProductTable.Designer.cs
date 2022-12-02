@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductTable));
             this.ProductView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.ProductView)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +53,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 371);
             this.Controls.Add(this.ProductView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductTable";
             this.Text = "ProductTable";
             ((System.ComponentModel.ISupportInitialize)(this.ProductView)).EndInit();

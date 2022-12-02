@@ -170,10 +170,11 @@ namespace MainForm.Logic
         {
             if (orders.Count == 0)
                 throw new MarketException("You didn`t have orders to change status!");
-            int orderId = 0;
+            int orderId = -1;
             var table = new ViewOrdersTable(orders, status, new MyDelegateOneItem<int>((int data) => orderId = data),question);
             table.ShowDialog();
-            orders[orderId].Status = status;
+            if(orderId!=-1)
+                orders[orderId].Status = status;
 
         }
 

@@ -27,6 +27,8 @@ namespace MainForm.Users
                 new MenuItem("Change Profile"),
                 new MenuItem("Create new order"),
                 new MenuItem("Ordering"),
+                new MenuItem("Review the history of orders"),
+                new MenuItem("Setting the status of the order Received")
             });
 
         }

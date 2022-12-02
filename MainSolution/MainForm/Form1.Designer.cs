@@ -29,22 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profileInfo = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(497, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(303, 206);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // menuStrip1
             // 
@@ -58,32 +47,40 @@
             // 
             // menuToolStripMenuItem
             // 
+            this.menuToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.menuToolStripMenuItem.RightToLeftAutoMirrorImage = true;
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
+            this.menuToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.menuToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.menuToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
             // profileInfo
             // 
+            this.profileInfo.AutoEllipsis = true;
             this.profileInfo.AutoSize = true;
-            this.profileInfo.Location = new System.Drawing.Point(12, 426);
+            this.profileInfo.Location = new System.Drawing.Point(12, 38);
             this.profileInfo.Name = "profileInfo";
-            this.profileInfo.Size = new System.Drawing.Size(99, 15);
+            this.profileInfo.Size = new System.Drawing.Size(100, 21);
             this.profileInfo.TabIndex = 9;
             this.profileInfo.Text = "Hello, dear guest!";
+            this.profileInfo.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.profileInfo.UseCompatibleTextRendering = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.LightCoral;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.profileInfo);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Shop";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -92,8 +89,6 @@
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem menuToolStripMenuItem;
         private Label profileInfo;

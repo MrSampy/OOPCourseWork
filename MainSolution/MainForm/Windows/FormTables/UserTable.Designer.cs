@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserTable));
             this.UserView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.UserView)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 405);
             this.Controls.Add(this.UserView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserTable";
             this.Text = "UserTable";
             ((System.ComponentModel.ISupportInitialize)(this.UserView)).EndInit();

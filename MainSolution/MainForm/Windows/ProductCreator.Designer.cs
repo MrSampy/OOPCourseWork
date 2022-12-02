@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductCreator));
             this.button1 = new System.Windows.Forms.Button();
             this.productName = new System.Windows.Forms.TextBox();
             this.productCategory = new System.Windows.Forms.TextBox();
@@ -128,6 +129,7 @@
             this.Controls.Add(this.productCategory);
             this.Controls.Add(this.productName);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductCreator";
             this.Text = "ProductCreator";
             this.ResumeLayout(false);
