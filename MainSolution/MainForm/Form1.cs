@@ -56,7 +56,7 @@ namespace MainForm
 
             try
             {
-                BusinessLogic.ChangeStatus(BusinessLogic.GetOrdersToCancellUser(TempPerson.GetName()), Orders.OrderStatus.Canceled_by_the_administrator,
+                BusinessLogic.ChangeStatus(BusinessLogic.GetOrdersToCancellAdmin(), Orders.OrderStatus.Canceled_by_the_administrator,
                     "Are you sure, you want to cancell the order?");
             }
             catch (MarketException ex)
@@ -71,7 +71,7 @@ namespace MainForm
 
             try
             {
-                BusinessLogic.ChangeStatus(BusinessLogic.GetOrdersToConpleted(TempPerson.GetName()), Orders.OrderStatus.Completed,
+                BusinessLogic.ChangeStatus(BusinessLogic.GetOrdersToConpleted(), Orders.OrderStatus.Completed,
                     "Are you sure, you want to complete the order?");
             }
             catch (MarketException ex)
@@ -86,7 +86,7 @@ namespace MainForm
 
             try
             {
-                BusinessLogic.ChangeStatus(BusinessLogic.GetOrdersToSent(TempPerson.GetName()), Orders.OrderStatus.Sent,
+                BusinessLogic.ChangeStatus(BusinessLogic.GetOrdersToSent(), Orders.OrderStatus.Sent,
                     "Are you sure, you want to send the order?");
             }
             catch (MarketException ex)

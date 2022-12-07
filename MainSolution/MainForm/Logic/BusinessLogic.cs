@@ -161,10 +161,12 @@ namespace MainForm.Logic
         public List<Order> GetOrdersToPay(string name) => UnitOfWork.Orders.GetAllOrders().Where(x => x.NameOfOwner.Equals(name) && x.Status == Orders.OrderStatus.New).ToList();
         public List<Order> GetOrdersToCancellUser(string name) => UnitOfWork.Orders.GetAllOrders().Where(x => x.NameOfOwner.Equals(name) && x.Status != Orders.OrderStatus.Canceled_by_the_administrator
         && x.Status != Orders.OrderStatus.Canceled_by_user && x.Status != Orders.OrderStatus.Completed && x.Status != Orders.OrderStatus.Received).ToList();
+        public List<Order> GetOrdersToCancellAdmin() => UnitOfWork.Orders.GetAllOrders().Where(x => x.Status != Orders.OrderStatus.Canceled_by_the_administrator
+        && x.Status != Orders.OrderStatus.Canceled_by_user && x.Status != Orders.OrderStatus.Completed && x.Status != Orders.OrderStatus.Received).ToList();
         public List<Order> GetOrdersToReceive(string name) => UnitOfWork.Orders.GetAllOrders().Where(x => x.NameOfOwner.Equals(name) && x.Status == Orders.OrderStatus.Sent).ToList();        
-        public List<Order> GetOrdersToConpleted(string name) => UnitOfWork.Orders.GetAllOrders().Where(x => x.NameOfOwner.Equals(name) && x.Status == Orders.OrderStatus.Received).ToList(); 
+        public List<Order> GetOrdersToConpleted() => UnitOfWork.Orders.GetAllOrders().Where(x => x.Status == Orders.OrderStatus.Received).ToList(); 
 
-        public List<Order> GetOrdersToSent(string name) => UnitOfWork.Orders.GetAllOrders().Where(x => x.NameOfOwner.Equals(name) && x.Status == Orders.OrderStatus.Payment_received).ToList();
+        public List<Order> GetOrdersToSent() => UnitOfWork.Orders.GetAllOrders().Where(x=>x.Status == Orders.OrderStatus.Payment_received).ToList();
 
         public void ChangeStatus(List<Order> orders, OrderStatus status,string question) 
         {
@@ -182,7 +184,7 @@ namespace MainForm.Logic
         {
             var orders = UnitOfWork.Orders.GetAllOrders().Where(x=>x.NameOfOwner.Equals(name)).ToList();
             if (orders.Count == 0)
-                throw new MarketException("You haven`t had any orders!");
+                throw new MarketException("You haven`t had any orders of such type!");
             var table = new ViewOrdersTable(orders);
             table.ShowDialog();
         }
