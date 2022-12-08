@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MainForm.Repositories
 {
-    internal class OrderRepository
+    internal class OrderRepository:IRepository
     {
         private List<Order> Orders;
 

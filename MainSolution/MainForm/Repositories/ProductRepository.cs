@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MainForm.Repositories
 {
-    internal class ProductRepository
+    internal class ProductRepository:IRepository
     {
         private List<Product> Products;
 

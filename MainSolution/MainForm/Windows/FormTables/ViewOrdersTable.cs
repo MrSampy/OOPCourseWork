@@ -37,7 +37,7 @@ namespace MainForm.Windows.FormTables
             dataGridView1.Rows.Clear();
             foreach (var order in orders)
             {
-                dataGridView1.Rows.Add(order.NameOfOwner, order.GetTotalPrice(), order.Status);
+                dataGridView1.Rows.Add(order.NameOfOwner, order.GetTotalPrice(), order.Status.ToString().Replace('_',' '));
             }
         }
         public ViewOrdersTable(List<Order> orders, OrderStatus status, MyDelegateOneItem<int> delegateOneItem, string text)

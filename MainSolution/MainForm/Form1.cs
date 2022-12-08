@@ -261,6 +261,7 @@ namespace MainForm
             var items = TempPerson.MenuItems.Select(x => x.Item).ToArray();
             for (var i = 0; i < items.Count(); ++i) 
             {
+                items[i].Click -= new EventHandler(InvokeItem);
                 items[i].Click += new EventHandler(InvokeItem);
             }
             this.menuToolStripMenuItem.DropDownItems.AddRange(items);

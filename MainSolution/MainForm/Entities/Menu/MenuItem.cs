@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainForm.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MainForm.Menu
 {
-    internal class MenuItem
+    internal class MenuItem: BaseEntity
     {
         public ToolStripMenuItem Item { set; get; }
         public MenuItem(string text) 

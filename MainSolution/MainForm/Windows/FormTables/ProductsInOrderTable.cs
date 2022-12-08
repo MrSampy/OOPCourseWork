@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MainForm.Products;
 namespace MainForm.Windows.FormTables
 {
-    public partial class ProductsInOrderTable : Form
+    internal partial class ProductsInOrderTable : Form
     {
         public ProductsInOrderTable(List<(int, Product)> products)
         {

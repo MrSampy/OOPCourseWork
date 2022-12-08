@@ -1,4 +1,5 @@
-﻿using MainForm.Products;
+﻿using MainForm.Entities;
+using MainForm.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace MainForm.Orders
         Canceled_by_the_administrator
     }
 
-    internal class Order
+    internal class Order: BaseEntity
     {
         public OrderStatus Status { get; set; }
         public List<(int, Product)> _productInOrder;

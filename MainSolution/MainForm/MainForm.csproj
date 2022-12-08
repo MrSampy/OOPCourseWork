@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Menu\" />
+    <Folder Include="Entities\Menu\" />
   </ItemGroup>
 
 </Project>
