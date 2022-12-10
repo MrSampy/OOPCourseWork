@@ -17,11 +17,10 @@ namespace MainForm
         Person TempPerson;
         private Dictionary<string, Action> actions;
 
-
         public Form1(UnitOfWork unitOfWork)
         {
             InitializeComponent();
-            BusinessLogic = new BusinessLogic(unitOfWork);
+            BusinessLogic = BusinessLogic.getInstance(unitOfWork);
             actions = new Dictionary<string, Action>
             {
                 {"Finish your work",CloseForm},

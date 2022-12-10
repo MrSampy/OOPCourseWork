@@ -18,8 +18,15 @@ namespace MainForm.Logic
     internal class BusinessLogic
     {
         public UnitOfWork UnitOfWork { set; get; }
+        private static BusinessLogic instance;
+        public static BusinessLogic getInstance(UnitOfWork unitOfWork)
+        {
+            if (instance is null)
+                instance = new BusinessLogic(unitOfWork);
+            return instance;
 
-        public BusinessLogic(UnitOfWork unitOfWork) => UnitOfWork = unitOfWork;
+        }
+        private BusinessLogic(UnitOfWork unitOfWork) => UnitOfWork = unitOfWork;
 
         public User GetUserByName(string name) => UnitOfWork.RegUsers.GetUserByName(name).Count !=0 ? UnitOfWork.RegUsers.GetUserByName(name).First() : UnitOfWork.Admins.GetUserByName(name).First();
 
